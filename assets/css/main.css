@@ -1871,6 +1871,12 @@
 				transform: translateX(100%);
 			}
 
+			.main.style2 > img {
+				-ms-transform: rotate(-90deg); /* IE 9 */
+				-webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+				transform: rotate(-90deg);
+			}
+
 		.main.style3 {
 			text-align: center;
 			padding: 6em 0 6em 0;
