@@ -1795,7 +1795,7 @@
 		}
 
 			.main.style1 h2 {
-				font-size: 4.25em;
+				font-size: 3.5em;
 				line-height: 1em;
 			}
 
@@ -2090,9 +2090,9 @@
 
 		}
 
-/* Intro */
+/* Home */
 
-	#intro {
+	#home {
 		background: url("images/overlay.png"), url("../../images/intro.jpg");
 		background-size: 256px 256px, cover;
 		background-attachment: fixed, fixed;
