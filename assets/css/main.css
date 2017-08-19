@@ -1921,6 +1921,11 @@
 			.main.style2 .content {
 				width: 40%;
 			}
+			.main.style2 img {
+				width: 60%;
+				padding-left: 5%;
+				padding-right: 5%;
+			}
 
 		}
 
@@ -1929,6 +1934,11 @@
 			.main.style2 .content {
 				width: 50%;
 			}
+			.main.style2 img {
+				width: 50%;
+				padding-left: 5%;
+				padding-right: 5%;
+			}
 
 		}
 
@@ -1936,6 +1946,11 @@
 
 			.main.style2 .content {
 				width: 60%;
+			}
+			.main.style2 img {
+				width: 40%;
+				padding-left: 5%;
+				padding-right: 5%;
 			}
 
 		}
