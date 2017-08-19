@@ -1871,12 +1871,6 @@
 				transform: translateX(100%);
 			}
 
-			.main.style2 > img {
-				-ms-transform: rotate(-90deg); /* IE 9 */
-				-webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
-				transform: rotate(-90deg);
-			}
-
 		.main.style3 {
 			text-align: center;
 			padding: 6em 0 6em 0;
@@ -1929,8 +1923,8 @@
 			}
 			.main.style2 img {
 				width: 60%;
-				padding-left: 5%;
-				padding-right: 5%;
+				padding-left: 10%;
+				padding-right: 20%;
 			}
 
 		}
@@ -1942,8 +1936,8 @@
 			}
 			.main.style2 img {
 				width: 50%;
-				padding-left: 5%;
-				padding-right: 5%;
+				padding-left: 7%;
+				padding-right: 7%;
 			}
 
 		}
@@ -1955,8 +1949,8 @@
 			}
 			.main.style2 img {
 				width: 40%;
-				padding-left: 5%;
-				padding-right: 5%;
+				padding-left: 3%;
+				padding-right: 3%;
 			}
 
 		}
@@ -1996,6 +1990,10 @@
 					-ms-transform: none;
 					transform: none;
 				}
+
+				.main.style2 img {
+					width: 0%;
+			}
 
 			.main.style3 {
 				text-align: center;
