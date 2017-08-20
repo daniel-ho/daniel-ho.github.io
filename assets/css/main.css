@@ -1992,8 +1992,8 @@
 				}
 
 				.main.style2 img {
-					width: 0%;
-			}
+					display: none;
+				}
 
 			.main.style3 {
 				text-align: center;
@@ -2006,6 +2006,10 @@
 
 			.main > .content {
 				max-width: calc(100% - 1.5em);
+			}
+
+			.main.style2 img {
+				display: none;
 			}
 
 		}
