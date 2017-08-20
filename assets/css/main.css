@@ -1921,12 +1921,12 @@
 		@media screen and (max-width: 1920px) {
 
 			.main.style2 .content {
-				width: 40%;
+				width: 50%;
 			}
 			.main.style2 img {
-				width: 60%;
+				width: 50%;
 				padding-left: 10%;
-				padding-right: 20%;
+				padding-right: 10%;
 			}
 
 		}
