@@ -712,7 +712,7 @@
 		.button.style2,
 		button.style2 {
 			background-color: transparent;
-			border: solid 2px #e5e6e7;
+			border: solid 2px #9d9d9d;
 			color: inherit;
 		}
 
@@ -1771,6 +1771,7 @@
 			width: 45em;
 			max-width: calc(100% - 4em);
 			margin: 0 auto;
+			color: #000000;
 		}
 
 			.main > .content > :last-child {
@@ -1810,6 +1811,7 @@
 				transform: translateZ(0);
 				opacity: 1.0;
 				margin: 0;
+				color: #000000;
 			}
 
 			.main.style1.inactive > .content {
@@ -1881,7 +1883,7 @@
 			}
 
 			.main.style3.primary {
-				background: #aaaaaa;
+				background: #ffffff;
 			}
 
 			.main.style3.secondary {
@@ -2021,8 +2023,8 @@
 		height: 5em;
 		line-height: 5em;
 		margin: 0;
-		background: #39454b;
-		color: #303030;
+		background: #303030;
+		color: rgba(185, 186, 187, 0.5);
 		overflow: hidden;
 	}
 
@@ -2116,7 +2118,7 @@
 /* Home */
 
 	#home {
-		background-color: #aaaaaa;
+		background-color: #ffffff;
 	}
 
 /* One */
