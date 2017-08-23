@@ -1271,6 +1271,10 @@
 		margin: 0 auto 2em auto;
 	}
 
+		.gallery h2 {
+			font-size: 1.5em;
+		}
+
 		.gallery article {
 			-moz-transition: -moz-transform 1s ease, opacity 1s ease;
 			-webkit-transition: -webkit-transform 1s ease, opacity 1s ease;
@@ -1283,6 +1287,7 @@
 			width: 50%;
 			position: relative;
 			opacity: 1.0;
+			padding: 1em 1em 2em 1em;
 		}
 
 			.gallery article .image {
