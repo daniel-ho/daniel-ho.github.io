@@ -117,6 +117,8 @@
 							});
 						});
 
+				$(#ethtracker).append("<a href='https://daniel-ho.github.io/EthTracker/' target='_blank'>Link to website.</a>");
+
 			});
 
 		// Section transitions.
