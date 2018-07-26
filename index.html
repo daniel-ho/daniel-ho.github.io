@@ -34,9 +34,10 @@
 					<ul>
 						<li><a href="#home">Home</a></li>
 						<li><a href="#about">About Me</a></li>
-						<li><a href="#projects">Projects</a></li>
+						<li><a href="#industry">Industry Experience</a></li>
 						<li><a href="#research">Research</a></li>
-						<li><a href="./danielho_resume.pdf" target="_blank">Resume</a></li>
+						<li><a href="#projects">Projects</a></li>
+						<li><a href="./daniel_ho_resume.pdf" target="_blank">Resume</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -59,18 +60,59 @@
 					<header>
 						<h2>About Me</h2>
 					</header>
-					<p>I'm a junior at UC Berkeley studying Electrical Engineering and Computer Science. My academic interests are oriented towards data processing and discovering new insights from data. Some of the fields that drew me towards my interest in data include signal processing, machine learning, and data visualization.</p>
-					<p>Aside from academics, I've also become interested in cryptocurrencies and blockchain technology, especially Ethereum. During my down time, I like cooking, working out with friends, and dancing.</p>
+					<p>I'm a senior at UC Berkeley studying Electrical Engineering and Computer Science. My academic interests are oriented around machine learning, specifically computer vision.
+					</p>
+					<p>Aside from academics, I've recently become interested in music production and have spent much of my free time this summer learning how to make beats. During my down time, I really enjoy cooking and dancing.</p>
 				</div>
-				<a href="#projects" class="button style2 down anchored">Next</a>
+				<a href="#industry" class="button style2 down anchored">Next</a>
+			</section>
+
+		<!-- Industry Experience -->
+			<section id="industry" class="main style2 right dark fullscreen">
+				<img src="images/industry/amazon126.PNG" alt="Amazon Lab126 Logo" id="amazon126"/>
+				<div class="content box style2">
+					<header>
+						<h2>Amazon Lab126</h2>
+					</header>
+					<p>I worked with the Alexa Local Search Platform team at AmazonLab126. My project was to design and implement a service that would make calls to a NoSQL database to provide internal Alexa clients with category information and query parsing to identify search keywords. I also performed unit tests and load tests to make sure the functionality and latency of the new system matched those of the existing system. </p>
+				</div>
+				<a href="#research" class="button style2 down anchored">Next</a>
+			</section>
+
+		<!-- Research -->
+			<section id="research" class="main style3 primary">
+				<div class="content">
+					<header>
+						<h2>Research</h2>
+					</header>
+					<div class="gallery">
+						<div class="from-left">
+							<header>
+								<h2>ASPIRE Lab</h2>
+							</header>
+							<p>I am currently working as an undergraduate researcher at the ASPIRE Lab in UC Berkeley. My project somewhat revolves around autonomous vehicles as it involves semantic segmentation and computer vision. I've been working with the DeepLabv3+ model to train neural networks on the Cityscapes dataset, and my work involves replacing convolutional layers with "shift" modules which are require zero parameters and zero flops. The goal is to reduce computation in deep neural networks while maintaining state of the art accuracy. </p>
+						</div>
+						<div class="from-right">
+							<a href="images/research/aspire-logo.png" class="image fit"><img src="images/research/aspire-logo.png" title="ASPIRE Lab" alt="ASPIRE Lab Logo" /></a>
+						</div>
+						<div class="from-left">
+							<a href="images/research/rise-logo.png" class="image fit"><img src="images/research/rise-logo.png" title="RISE Lab" alt="RISE Lab Logo" /></a>
+						</div>
+						<div class="from-right">
+							<header>
+								<h2>RISE Lab</h2>
+							</header>
+							<p>At RISE Lab, my project was motivated by the idea of being able to train neural networks on privacy sensitive information from multiple parties without having to reveal the data. I conducted benchmark tests on convolutional neural networks (CIFAR 10/100 datasets) and sequence to sequence models using alternative activation functions, which were essentially linear approximations of nonlinearities in neural networks like softmax. </p>
+						</div>
+ 					</div>
+				</div>
 			</section>
 
 		<!-- Projects -->
-			<section id="projects" class="main style3 primary">
+			<section id="research" class="main style3 primary">
 				<div class="content">
 					<header>
 						<h2>Personal Projects</h2>
-					</header>
 					<div class="gallery">
 						<div class="from-left">
 							<header>
@@ -91,16 +133,6 @@
 							<p>An Android widget I developed using Android Studio to provide real time updates on the price of Ethereum as well as the 24 hour percentage change. With a minimalistic design, it updates periodically at 1 hour intervals and can be manually updated with the refresh button. </p>
 						</div>
  					</div>
-				</div>
-			</section>
-
-		<!-- Research -->
-			<section id="research" class="main style3 primary">
-				<div class="content">
-					<header>
-						<h2>Research</h2>
-					</header>
-					<p>I am currently doing research in the RISE Lab at UC Berkeley. The project I am working on is motivated by the possibility of allowing multiple parties to collaborate in training a neural network without the need to share their individual inputs. As privacy is becoming an increasingly relevant issue, this project could make it possible for companies to build secure models with a variety of applications ranging from medical research to security systems. My work involves working extensively with Tensorflow and popular benchmark datasets like CIFAR 10/100 to accurately train neural networks using linear or polynomial approximations of nonlinear functions like the softmax function, which would be dificult to encrypt.</p>
 				</div>
 			</section>
 
