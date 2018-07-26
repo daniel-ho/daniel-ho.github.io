@@ -2137,13 +2137,13 @@
 
 /* Gray background */
 
-	#home {
+	#home, #research, #projects {
 		background-color: #ddd;
 	}
 
 /* Dark background w/ svg */
 
-	#about, #research, #industry, #projects {
+	#about, #industry,  {
 		background: url("images/intro.svg");
 		background-size: 100%, 100%;
 		background-attachment: fixed, fixed;
