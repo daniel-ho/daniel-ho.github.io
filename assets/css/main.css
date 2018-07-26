@@ -2135,15 +2135,15 @@
 
 		}
 
-/* White background */
+/* Gray background */
 
-	#home, #industry, #projects {
-		background-color: #ffffff;
+	#home {
+		background-color: #ddd;
 	}
 
 /* Dark background w/ svg */
 
-	#about, #research {
+	#about, #research, #industry, #projects {
 		background: url("images/intro.svg");
 		background-size: 100%, 100%;
 		background-attachment: fixed, fixed;
