@@ -1858,6 +1858,13 @@
 				transition: transform 1s ease;
 			}
 
+			.main.style2 > #amazon126 {
+				-moz-transition: -moz-transform 1s ease;
+				-webkit-transition: -webkit-transform 1s ease;
+				-ms-transition: -ms-transform 1s ease;
+				transition: transform 1s ease;
+			}
+
 			.main.style2.left {
 				-moz-justify-content: -moz-flex-start;
 				-webkit-justify-content: -webkit-flex-start;
@@ -1887,6 +1894,13 @@
 			}
 
 			.main.style2.inactive.right > #self {
+				-moz-transform: translateX(-100%);
+				-webkit-transform: translateX(-100%);
+				-ms-transform: translateX(-100%);
+				transform: translateX(-100%);
+			}
+
+			.main.style2.inactive.right > #amazon126 {
 				-moz-transform: translateX(-100%);
 				-webkit-transform: translateX(-100%);
 				-ms-transform: translateX(-100%);
@@ -2143,7 +2157,7 @@
 
 /* Dark background w/ svg */
 
-	#about, #industry,  {
+	#about, #industry {
 		background: url("images/intro.svg");
 		background-size: 100%, 100%;
 		background-attachment: fixed, fixed;
