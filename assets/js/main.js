@@ -1,249 +1,117 @@
 /*
-	Big Picture by HTML5 UP
+	Strata by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
 (function($) {
 
-	skel.breakpoints({
-		xxlarge: '(max-width: 1920px)',
-		xlarge: '(max-width: 1680px)',
-		large: '(max-width: 1280px)',
-		medium: '(max-width: 1000px)',
-		small: '(max-width: 736px)',
-		xsmall: '(max-width: 480px)',
-	});
+	var $window = $(window),
+		$body = $('body'),
+		$header = $('#header'),
+		$footer = $('#footer'),
+		$main = $('#main'),
+		settings = {
 
-	$(function() {
+			// Parallax background effect?
+				parallax: true,
 
-		var	$window = $(window),
-			$body = $('body'),
-			$header = $('#header'),
-			$all = $body.add($header);
+			// Parallax factor (lower = more intense, higher = less intense).
+				parallaxFactor: 20
 
-		// Disable animations/transitions until the page has loaded.
-			$body.addClass('is-loading');
+		};
 
-			$window.on('load', function() {
+	// Breakpoints.
+		breakpoints({
+			xlarge:  [ '1281px',  '1800px' ],
+			large:   [ '981px',   '1280px' ],
+			medium:  [ '737px',   '980px'  ],
+			small:   [ '481px',   '736px'  ],
+			xsmall:  [ null,      '480px'  ],
+		});
+
+	// Play initial animations on page load.
+		$window.on('load', function() {
+			window.setTimeout(function() {
+				$body.removeClass('is-preload');
+			}, 100);
+		});
+
+	// Touch?
+		if (browser.mobile) {
+
+			// Turn on touch mode.
+				$body.addClass('is-touch');
+
+			// Height fix (mostly for iOS).
 				window.setTimeout(function() {
-					$body.removeClass('is-loading');
+					$window.scrollTop($window.scrollTop() + 1);
 				}, 0);
-			});
 
-		// Touch mode.
-			skel.on('change', function() {
+		}
 
-				if (skel.vars.mobile || skel.breakpoint('small').active)
-					$body.addClass('is-touch');
-				else
-					$body.removeClass('is-touch');
+	// Footer.
+		breakpoints.on('<=medium', function() {
+			$footer.insertAfter($main);
+		});
 
-			});
+		breakpoints.on('>medium', function() {
+			$footer.appendTo($header);
+		});
 
-		// Fix: Placeholder polyfill.
-			$('form').placeholder();
+	// Header.
 
-		// Fix: IE flexbox fix.
-			if (skel.vars.IEVersion <= 11
-			&&	skel.vars.IEVersion >= 10) {
+		// Parallax background.
 
-				var $main = $('.main.fullscreen'),
-					IEResizeTimeout;
+			// Disable parallax on IE (smooth scrolling is jerky), and on mobile platforms (= better performance).
+				if (browser.name == 'ie'
+				||	browser.mobile)
+					settings.parallax = false;
 
-				$window
-					.on('resize.ie-flexbox-fix', function() {
+			if (settings.parallax) {
 
-						clearTimeout(IEResizeTimeout);
+				breakpoints.on('<=medium', function() {
 
-						IEResizeTimeout = setTimeout(function() {
+					$window.off('scroll.strata_parallax');
+					$header.css('background-position', '');
 
-							var wh = $window.height();
+				});
 
-							$main.each(function() {
+				breakpoints.on('>medium', function() {
 
-								var $this = $(this);
+					$header.css('background-position', 'left 0px');
 
-								$this.css('height', '');
+					$window.on('scroll.strata_parallax', function() {
+						$header.css('background-position', 'left ' + (-1 * (parseInt($window.scrollTop()) / settings.parallaxFactor)) + 'px');
+					});
 
-								if ($this.height() <= wh)
-									$this.css('height', (wh - 50) + 'px');
+				});
 
-							});
-
-						});
-
-					})
-					.triggerHandler('resize.ie-flexbox-fix');
+				$window.on('load', function() {
+					$window.triggerHandler('scroll');
+				});
 
 			}
 
-		// Prioritize "important" elements on small.
-			skel.on('+small -small', function() {
-				$.prioritize(
-					'.important\\28 small\\29',
-					skel.breakpoint('small').active
-				);
-			});
+	// Main Sections: Two.
 
-		// Gallery.
+		// Lightbox gallery.
 			$window.on('load', function() {
 
-				var $gallery = $('.gallery');
-
-				$gallery.poptrox({
-					baseZIndex: 10001,
-					useBodyOverflow: false,
-					usePopupEasyClose: false,
-					overlayColor: '#1f2328',
-					overlayOpacity: 0.65,
-					usePopupDefaultStyling: false,
-					usePopupCaption: true,
+				$('#two').poptrox({
+					caption: function($a) { return $a.next('h3').text(); },
+					overlayColor: '#2c2c2c',
+					overlayOpacity: 0.85,
+					popupCloserText: '',
 					popupLoaderText: '',
-					windowMargin: 50,
-					usePopupNav: true
+					selector: '.work-item a.image',
+					usePopupCaption: true,
+					usePopupDefaultStyling: false,
+					usePopupEasyClose: false,
+					usePopupNav: true,
+					windowMargin: (breakpoints.active('<=small') ? 0 : 50)
 				});
-
-				// Hack: Adjust margins when 'small' activates.
-					skel
-						.on('-small', function() {
-							$gallery.each(function() {
-								$(this)[0]._poptrox.windowMargin = 50;
-							});
-						})
-						.on('+small', function() {
-							$gallery.each(function() {
-								$(this)[0]._poptrox.windowMargin = 5;
-							});
-						});
-
-				$('#ethtracker').append("<a href='https://daniel-ho.github.io/EthTracker/' target='_blank'>Link to website.</a>");
 
 			});
-
-		// Section transitions.
-			if (skel.canUse('transition')) {
-
-				var on = function() {
-
-					// Galleries.
-						$('.gallery')
-							.scrollex({
-								top:		'30vh',
-								bottom:		'30vh',
-								delay:		50,
-								initialize:	function() { $(this).addClass('inactive'); },
-								terminate:	function() { $(this).removeClass('inactive'); },
-								enter:		function() { $(this).removeClass('inactive'); },
-								leave:		function() { $(this).addClass('inactive'); }
-							});
-
-					// Generic sections.
-						$('.main.style1')
-							.scrollex({
-								mode:		'middle',
-								delay:		100,
-								initialize:	function() { $(this).addClass('inactive'); },
-								terminate:	function() { $(this).removeClass('inactive'); },
-								enter:		function() { $(this).removeClass('inactive'); },
-								leave:		function() { $(this).addClass('inactive'); }
-							});
-
-						$('.main.style2')
-							.scrollex({
-								mode:		'middle',
-								delay:		100,
-								initialize:	function() { $(this).addClass('inactive'); },
-								terminate:	function() { $(this).removeClass('inactive'); },
-								enter:		function() { $(this).removeClass('inactive'); },
-								leave:		function() { $(this).addClass('inactive'); }
-							});
-
-						$('.main.style3')
-							.scrollex({
-								mode:		'middle',
-								delay:		100,
-								initialize:	function() { $(this).addClass('inactive'); },
-								terminate:	function() { $(this).removeClass('inactive'); },
-								enter:		function() { $(this).removeClass('inactive'); },
-								leave:		function() { $(this).addClass('inactive'); }
-							});
-
-					// Contact.
-						$('#contact')
-							.scrollex({
-								top:		'50%',
-								delay:		50,
-								initialize:	function() { $(this).addClass('inactive'); },
-								terminate:	function() { $(this).removeClass('inactive'); },
-								enter:		function() { $(this).removeClass('inactive'); },
-								leave:		function() { $(this).addClass('inactive'); }
-							});
-
-				};
-
-				var off = function() {
-
-					// Galleries.
-						$('.gallery')
-							.unscrollex();
-
-					// Generic sections.
-						$('.main.style1')
-							.unscrollex();
-
-						$('.main.style2')
-							.unscrollex();
-
-					// Contact.
-						$('#contact')
-							.unscrollex();
-
-				};
-
-				skel.on('change', function() {
-
-					if (skel.breakpoint('small').active)
-						(off)();
-					else
-						(on)();
-
-				});
-
-			}
-
-		// Events.
-			var resizeTimeout, resizeScrollTimeout;
-
-			$window
-				.resize(function() {
-
-					// Disable animations/transitions.
-						$body.addClass('is-resizing');
-
-					window.clearTimeout(resizeTimeout);
-
-					resizeTimeout = window.setTimeout(function() {
-
-						// Update scrolly links.
-							$('a[href^="#"]').scrolly({
-								speed: 1500,
-								offset: $header.outerHeight() - 1
-							});
-
-						// Re-enable animations/transitions.
-							window.setTimeout(function() {
-								$body.removeClass('is-resizing');
-								$window.trigger('scroll');
-							}, 0);
-
-					}, 100);
-
-				})
-				.load(function() {
-					$window.trigger('resize');
-				});
-
-	});
 
 })(jQuery);
